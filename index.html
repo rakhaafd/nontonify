@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nontonify</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <link rel="icon" href="https://i.imgur.com/pKTYq3B.png" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap');
+
+    body {
+      font-family: "Poppins";
+      background-color: #141414;
+      color: #fff;
+    }
+
+    .navbar {
+      background-color: #000;
+      padding: 15px 0;
+    }
+
+    .navbar-toggler-icon {
+      filter: invert(100%);
+    }
+
+    .navbar-toggler {
+      border: 1px solid #fff;
+      background-color: transparent;
+    }
+
+    .navbar-toggler:focus {
+      box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.2);
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: #fff !important;
+    }
+
+    .nav-link:hover {
+      color: #e50914 !important;
+    }
+
+    .hero-section {
+      padding: 0;
+      height: 600px;
+    }
+
+    .carousel-item {
+      height: 600px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .carousel-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+
+    .carousel-caption {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+      bottom: 100px;
+      z-index: 1;
+    }
+
+    .btn-netflix {
+      background-color: #e50914;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+    }
+
+    .btn-netflix:hover {
+      background-color: #b20710;
+    }
+
+    .card {
+      background-color: #222;
+      color: #fff;
+      border: none;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card-img-top {
+      height: 300px;
+      object-fit: cover;
+    }
+
+    .modal-fullscreen .modal-content {
+      background-color: #141414;
+      color: #fff;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    #trailer-container {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    #trailer-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .contact-section {
+      background-color: #222;
+      padding: 50px 0;
+    }
+
+    .form-control {
+      background-color: #333;
+      border: 1px solid #555;
+      color: #fff;
+    }
+
+    .form-control::placeholder {
+      color: #999;
+    }
+
+    .footer {
+      background-color: #000;
+      color: #999;
+      padding: 20px 0;
+    }
+
+    .social-icons a:hover {
+      color: #e50914 !important;
+    }
+
+    .about-image {
+      max-width: 70%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#"><i class="fas fa-film me-2"></i><span class="text-danger"><strong>Nonton</span>ify</strong></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home"><i class="fas fa-home me-1"></i>Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about"><i class="fas fa-info-circle me-1"></i>About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#movies"><i class="fas fa-video me-1"></i>Movies</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<section id="home" class="hero-section">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      
+      <!-- Devil May Cry -->
+      <div class="carousel-item active"
+        style="background-image: url('https://www.gimbot.com/wp-content/uploads/2025/04/AAAAQXlDd6OlJPtu2Ida7hH89I0ogpgpEUZsDjNNHLTLCfP3cw4zkf-7jJYZhOa-hgxeeh0RoUwpUMNrB01wubXye1jHZ8go_fYAj8F0VGZ5EKCPJG17Pvvow5jliErGuvCQOsULCrg59cnve60DYD3aeIuy.jpg');">
+        <div class="carousel-caption">
+          <h1 class="display-4"><strong>Devil May Cry 😈</strong></h1>
+          <p class="lead">Dante membasmi iblis dalam aksi penuh gaya di adaptasi Netflix terbaru! 🔥🗡️</p>
+          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+        </div>
+      </div>
+
+      <!-- Squid Game -->
+      <div class="carousel-item"
+        style="background-image: url('https://ceknricek.com/photo/plugin/article/2025/1738029684_1-org.jpg');">
+        <div class="carousel-caption">
+          <h1 class="display-4"><strong>Squid Game 🦑</strong></h1>
+          <p class="lead">Bertahan hidup atau mati dalam permainan paling mematikan di Korea! 💀🎮</p>
+          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+        </div>
+      </div>
+
+      <!-- Stranger Things -->
+      <div class="carousel-item"
+        style="background-image: url('https://sm.ign.com/ign_nordic/news/s/stranger-t/stranger-things-season-5-all-episode-titles-revealed-as-netf_f7v5.jpg');">
+        <div class="carousel-caption">
+          <h1 class="display-4"><strong>Stranger Things 👾</strong></h1>
+          <p class="lead">Rahasia gelap dan dunia terbalik menanti di Hawkins! ⚡🕳️</p>
+          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+        </div>
+      </div>
+
+      <!-- Alice in Borderland -->
+      <div class="carousel-item"
+        style="background-image: url('https://akcdn.detik.net.id/visual/2020/11/26/alice-in-borderline-2_169.jpeg?w=1200');">
+        <div class="carousel-caption">
+          <h1 class="display-4"><strong>Alice in Borderland 🎴</strong></h1>
+          <p class="lead">Masuki dunia game brutal dengan nyawa sebagai taruhannya! 🧠🕹️</p>
+          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+        </div>
+      </div>
+
+      <!-- Peaky Blinders -->
+      <div class="carousel-item"
+        style="background-image: url('https://www.blackxperience.com/assets/content/blackattitude/blackstyle/peaky-blinders2.jpg');">
+        <div class="carousel-caption">
+          <h1 class="display-4"><strong>Peaky Blinders 🧢</strong></h1>
+          <p class="lead">Mafia Birmingham kembali dengan strategi, kekuasaan, dan balas dendam! 🔫🕵️‍♂️</p>
+          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+        </div>
+      </div>
+
+      <!-- Money Heist -->
+      <div class="carousel-item"
+        style="background-image: url('https://ekspresionline.com/wp-content/uploads/2021/08/Money-Heist-2-scaled.jpg');">
+        <div class="carousel-caption">
+          <h1 class="display-4"><strong>Money Heist 💰</strong></h1>
+          <p class="lead">Aksi pencurian terbesar di Spanyol yang mengguncang dunia! 🔥🎭</p>
+          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</section>
+
+
+  <section id="about" class="my-5">
+    <div class="container">
+      <h2 class="text-center mb-5"><i class="fas fa-info-circle me-2"></i>About Nontonify</h2>
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="mb-4">Welcome to <span class="text-danger"><strong>Nonton</span>ify.</strong></h2>
+          <p class="text-start">Nontonify adalah platform streaming untuk menikmati film blockbuster, karya indie, dan
+            klasik abadi. Dengan kurasi konten berkualitas dan akses mudah dari berbagai perangkat, Nontonify
+            menghadirkan pengalaman sinematik terbaik bagi pecinta film di mana saja. 🎬</p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="https://i.imgur.com/pKTYq3B.png" alt="Nontonify About Image" class="about-image"">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="movies" class="py-5">
+          <div class="container">
+            <h2 class="text-center mb-4"><i class="fas fa-video me-2"></i>Featured Movies & Series</h2>
+            <div class="row text-white">
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    src="https://cdn0-production-images-kly.akamaized.net/qbjGChmI2SqYemgUlWHwU1WGpkk=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/727386/original/082769200_1409023118-Breaking-Bad-HD-Poster-Download-Free-1080p.jpg"
+                    class="card-img-top" alt="Breaking Bad">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Breaking Bad 💉</h5>
+                    <p class="card-text">Guru kimia beralih ke kejahatan dalam drama intens ini! 🧪🔥</p>
+                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal1"><i
+                        class="fas fa-book-open me-2"></i>Read More</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    src="https://m.media-amazon.com/images/S/pv-target-images/08fd3bfadb7d07164a560a41d89765396d7be6c2f8475c35837990c1357f4c5f.jpg"
+                    class="card-img-top" alt="Better Call Saul">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Better Call Saul ⚖️</h5>
+                    <p class="card-text">Ikuti kebangkitan Saul dalam prekuel yang mendebarkan! 📞💼</p>
+                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal2"><i
+                        class="fas fa-book-open me-2"></i>Read More</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/259/2025/04/20/R-2-3728481645.jpg"
+                    class="card-img-top" alt="Interstellar">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Interstellar 🚀</h5>
+                    <p class="card-text">Jelajahi ruang dan waktu dalam perjalanan sci-fi epik! 🌌✨</p>
+                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal3"><i
+                        class="fas fa-book-open me-2"></i>Read More</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img src="https://primerejune.wordpress.com/wp-content/uploads/2020/07/dark-season-3-review-1.jpg"
+                    class="card-img-top" alt="Dark">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Dark ⏳</h5>
+                    <p class="card-text">Pecahkan misteri perjalanan waktu dalam thriller Jerman! 🕰️🌀</p>
+                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal4"><i
+                        class="fas fa-book-open me-2"></i>Read More</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/9b4dacba-2f80-4272-aac7-bb5e2ae91343/126cbbbc902e93563dbed96c2c72cb1d53c8d8ba.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom"
+                    class="card-img-top" alt="The Shawshank Redemption">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-film me-2"></i>The Shawshank Redemption 🔒</h5>
+                    <p class="card-text">Kisah harapan dan pelarian di penjara yang kejam! 🕊️🚨</p>
+                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal5"><i
+                        class="fas fa-book-open me-2"></i>Read More</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 mb-4">
+                <div class="card">
+                  <img
+                    src="https://cdn.rri.co.id/berita/Kendari/o/1734761203423-44-facts-about-the-movie-forrest-gump-1687253076/sp1q36pnqnpu1bp.jpeg"
+                    class="card-img-top" alt="Forrest Gump">
+                  <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Forrest Gump 🍫</h5>
+                    <p class="card-text">Berlari melalui suka duka hidup bersama Forrest! 🏃‍♂️❤️</p>
+                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal6"><i
+                        class="fas fa-book-open me-2"></i>Read More</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+  </section>
+
+  <section class="py-5 bg-dark text-white">
+    <div class="container">
+      <h2 class="text-center mb-4"><i class="fas fa-play-circle me-2"></i>Official Trailers</h2>
+
+      <div id="trailer-container" class="d-flex overflow-auto gap-3 pb-4"
+        style="scroll-snap-type: x mandatory; scroll-behavior: smooth;">
+
+        <!-- Trailer 1 -->
+        <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/UWMzKXsY9A4" title="Final Destinations" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Final Destinations: Bloodlines</h5>
+            <p class="card-text text-muted"><strong>2025</strong></p>
+          </div>
+        </div>
+
+        <!-- Trailer 2 -->
+        <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/2b3vBaINZ7w" title="Until Dawn"
+              allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Until Dawn</h5>
+            <p class="card-text text-muted"><strong>2025</strong></p>
+
+          </div>
+        </div>
+
+        <!-- Trailer 3 -->
+        <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/fsQgc9pCyDU" title="Mission Impossible" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Mission Impossible: The Final Reckoning</h5>
+            <p class="card-text text-muted"><strong>2025</strong></p>
+          </div>
+        </div>
+
+        <!-- Trailer 4 -->
+        <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/-sAOWhvheK8" title="Thunderbolts" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Marvel's Thunderbolts</h5>
+            <p class="card-text text-muted"><strong>2025</strong></p>
+          </div>
+        </div>
+
+        <!-- Trailer 5 -->
+        <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/VWqJifMMgZE" title="Lilo & Stitch" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Lilo & Stitch</h5>
+            <p class="card-text text-muted"><strong>2025</strong></p>
+          </div>
+        </div>
+
+        <!-- Trailer 6 -->
+        <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/7joulECTx_U" title="Sinners" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Sinners</h5>
+            <p class="card-text text-muted"><strong>2025</strong></p>
+          </div>
+        </div>
+
+        <!-- Trailer 7 -->
+        <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/tA1s65o_kYM" title="The Batman" allowfullscreen></iframe>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Mickey 17</h5>
+            <p class="card-text text-muted"><strong>2025</strong></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrow Buttons -->
+      <div class="d-flex justify-content-between align-items-center mb-2">
+        <button class="btn btn-outline-light" onclick="scrollTrailer(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="btn btn-outline-light" onclick="scrollTrailer(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal fade modal-fullscreen" id="movieModal1" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Breaking Bad</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="https://cdn0-production-images-kly.akamaized.net/qbjGChmI2SqYemgUlWHwU1WGpkk=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/727386/original/082769200_1409023118-Breaking-Bad-HD-Poster-Download-Free-1080p.jpg"
+            class="img-fluid mb-3" alt="Breaking Bad">
+          <h3>About Breaking Bad 💉</h3>
+          <p>Guru kimia, Walter White, beralih membuat metamfetamin bersama mantan muridnya, Jesse Pinkman, untuk
+            mengamankan masa depan keluarganya setelah didiagnosis kanker. Drama kelam ini mengeksplorasi kejatuhannya
+            ke dunia kriminal, penuh ketegangan dan dilema moral. 🧪🔥</p>
+          <p>Key Details:</p>
+          <ul>
+            <li><i class="fas fa-star me-2"></i>Genre: Kriminal/Drama</li>
+            <li><i class="fas fa-clock me-2"></i>Durasi: 5 Musim, 62 Episode</li>
+            <li><i class="fas fa-users me-2"></i>Pencipta: Vince Gilligan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-fullscreen" id="movieModal2" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Better Call Saul</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="https://m.media-amazon.com/images/S/pv-target-images/08fd3bfadb7d07164a560a41d89765396d7be6c2f8475c35837990c1357f4c5f.jpg"
+            class="img-fluid mb-3" alt="Better Call Saul">
+          <h3>About Better Call Saul ⚖️</h3>
+          <p>Ikuti transformasi Jimmy McGill menjadi pengacara licik Saul Goodman dalam prekuel *Breaking Bad* ini.
+            Penuh dengan tipu muslihat cerdas dan drama pengadilan, ini adalah petualangan mendebarkan di dunia kriminal
+            Albuquerque! 📞💼</p>
+          <p>Key Details:</p>
+          <ul>
+            <li><i class="fas fa-star me-2"></i>Genre: Kriminal/Drama</li>
+            <li><i class="fas fa-clock me-2"></i>Durasi: 6 Musim, 63 Episode</li>
+            <li><i class="fas fa-users me-2"></i>Pencipta: Vince Gilligan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-fullscreen" id="movieModal3" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Interstellar</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/259/2025/04/20/R-2-3728481645.jpg"
+            class="img-fluid mb-3" alt="Interstellar">
+          <h3>About Interstellar 🚀</h3>
+          <p>Tim astronot, dipimpin oleh mantan pilot NASA Joseph Cooper, menjelajah melalui lubang cacing untuk mencari
+            rumah baru bagi umat manusia saat Bumi menghadapi kepunahan. Epik sci-fi ini memadukan emosi dan fisika yang
+            mencengangkan! 🌌✨</p>
+          <p>Key Details:</p>
+          <ul>
+            <li><i class="fas fa-star me-2"></i>Genre: Sci-Fi/Drama</li>
+            <li><i class="fas fa-clock me-2"></i>Durasi: 2 jam 49 menit</li>
+            <li><i class="fas fa-users me-2"></i>Sutradara: Christopher Nolan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-fullscreen" id="movieModal4" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Dark</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img src="https://primerejune.wordpress.com/wp-content/uploads/2020/07/dark-season-3-review-1.jpg"
+            class="img-fluid mb-3" alt="Dark">
+          <h3>Tentang Dark ⏳</h3>
+          <p>Kota kecil di Jerman dilanda misteri perjalanan waktu dan rahasia keluarga kelam. Serial Netflix yang
+            membingungkan pikiran ini menenun jaringan nasib dan intrik yang rumit! 🕰️🌀</p>
+          <p>Detail Utama:</p>
+          <ul>
+            <li><i class="fas fa-star me-2"></i>Genre: Sci-Fi/Thriller</li>
+            <li><i class="fas fa-clock me-2"></i>Durasi: 3 Musim, 26 Episode</li>
+            <li><i class="fas fa-users me-2"></i>Pencipta: Baran bo Odar, Jantje Friese</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-fullscreen" id="movieModal5" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">The Shawshank Redemption</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/9b4dacba-2f80-4272-aac7-bb5e2ae91343/126cbbbc902e93563dbed96c2c72cb1d53c8d8ba.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom"
+            class="img-fluid mb-3" alt="The Shawshank Redemption">
+          <h3>Tentang The Shawshank Redemption 🔒</h3>
+          <p>Andy Dufresne, yang dihukum secara salah, menjalin ikatan dengan Red di penjara, merancang rencana pelarian
+            yang berani. Kisah abadi tentang harapan dan ketahanan! 🕊️🚨</p>
+          <p>Detail Utama:</p>
+          <ul>
+            <li><i class="fas fa-star me-2"></i>Genre: Drama</li>
+            <li><i class="fas fa-clock me-2"></i>Durasi: 2 jam 22 menit</li>
+            <li><i class="fas fa-users me-2"></i>Sutradara: Frank Darabont</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade modal-fullscreen" id="movieModal6" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Forrest Gump</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img
+            src="https://cdn.rri.co.id/berita/Kendari/o/1734761203423-44-facts-about-the-movie-forrest-gump-1687253076/sp1q36pnqnpu1bp.jpeg"
+            class="img-fluid mb-3" alt="Forrest Gump">
+          <h3>Tentang Forrest Gump 🍫</h3>
+          <p>Forrest, pria berhati besar dengan mimpi sederhana, berlari melalui sejarah puluhan tahun, menyentuh
+            kehidupan dengan kebaikannya. Klasik yang menghangatkan hati! 🏃‍♂️❤️</p>
+          <p>Detail Utama:</p>
+          <ul>
+            <li><i class="fas fa-star me-2"></i>Genre: Drama/Romansa</li>
+            <li><i class="fas fa-clock me-2"></i>Durasi: 2 jam 22 menit</li>
+            <li><i class="fas fa-users me-2"></i>Sutradara: Robert Zemeckis</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <h2 class="text-center mb-4"><i class="fas fa-envelope me-2"></i>Contact Us</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="form-label"><i class="fas fa-user me-2"></i>Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Your Name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label"><i class="fas fa-envelope me-2"></i>Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Your Email">
+            </div>
+            <div class="mb-3">
+              <label for="message" class="form-label"><i class="fas fa-comment me-2"></i>Message</label>
+              <textarea class="form-control" id="message" rows="5" placeholder="Your Message"></textarea>
+            </div>
+            <button type="button" class="btn btn-netflix"><i class="fas fa-paper-plane me-2"></i>Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer text-center">
+    <div class="container">
+      <p>© 2025 Nontonify. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollTrailer(direction) {
+      const container = document.getElementById('trailer-container');
+      const cardWidth = 320;
+      container.scrollLeft += direction * cardWidth;
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
