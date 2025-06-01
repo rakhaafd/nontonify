@@ -146,11 +146,31 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
+
+    .rating-section {
+      background-color: #222;
+      padding: 50px 0;
+    }
+
+    .rating-card {
+      background-color: #333;
+      border: none;
+      padding: 20px;
+      border-radius: 8px;
+    }
+
+    .star-rating .fas.fa-star {
+      color: #e50914;
+    }
+
+    .star-rating .far.fa-star {
+      color: #555;
+    }
   </style>
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg fixed-top">
+<nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="#"><i class="fas fa-film me-2"></i><span class="text-danger"><strong>Nonton</span>ify</strong></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -168,6 +188,9 @@
             <a class="nav-link" href="#movies"><i class="fas fa-video me-1"></i>Movies</a>
           </li>
           <li class="nav-item">
+            <a class="nav-link" href="#ratings"><i class="fas fa-star me-1"></i>Ratings</a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link" href="#contact"><i class="fas fa-envelope me-1"></i>Contact</a>
           </li>
         </ul>
@@ -175,84 +198,75 @@
     </div>
   </nav>
 
-<section id="home" class="hero-section">
-  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-      
-      <!-- Devil May Cry -->
-      <div class="carousel-item active"
-        style="background-image: url('https://www.gimbot.com/wp-content/uploads/2025/04/AAAAQXlDd6OlJPtu2Ida7hH89I0ogpgpEUZsDjNNHLTLCfP3cw4zkf-7jJYZhOa-hgxeeh0RoUwpUMNrB01wubXye1jHZ8go_fYAj8F0VGZ5EKCPJG17Pvvow5jliErGuvCQOsULCrg59cnve60DYD3aeIuy.jpg');">
-        <div class="carousel-caption">
-          <h1 class="display-4"><strong>Devil May Cry 😈</strong></h1>
-          <p class="lead">Dante membasmi iblis dalam aksi penuh gaya di adaptasi Netflix terbaru! 🔥🗡️</p>
-          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+  <section id="home" class="hero-section">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <!-- Devil May Cry -->
+        <div class="carousel-item active"
+          style="background-image: url('https://www.gimbot.com/wp-content/uploads/2025/04/AAAAQXlDd6OlJPtu2Ida7hH89I0ogpgpEUZsDjNNHLTLCfP3cw4zkf-7jJYZhOa-hgxeeh0RoUwpUMNrB01wubXye1jHZ8go_fYAj8F0VGZ5EKCPJG17Pvvow5jliErGuvCQOsULCrg59cnve60DYD3aeIuy.jpg');">
+          <div class="carousel-caption">
+            <h1 class="display-4"><strong>Devil May Cry 😈</strong></h1>
+            <p class="lead">Dante membasmi iblis dalam aksi penuh gaya di adaptasi Netflix terbaru! 🔥🗡️</p>
+            <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+          </div>
+        </div>
+        <!-- Squid Game -->
+        <div class="carousel-item"
+          style="background-image: url('https://ceknricek.com/photo/plugin/article/2025/1738029684_1-org.jpg');">
+          <div class="carousel-caption">
+            <h1 class="display-4"><strong>Squid Game 🦑</strong></h1>
+            <p class="lead">Bertahan hidup atau mati dalam permainan paling mematikan di Korea! 💀🎮</p>
+            <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+          </div>
+        </div>
+        <!-- Stranger Things -->
+        <div class="carousel-item"
+          style="background-image: url('https://sm.ign.com/ign_nordic/news/s/stranger-t/stranger-things-season-5-all-episode-titles-revealed-as-netf_f7v5.jpg');">
+          <div class="carousel-caption">
+            <h1 class="display-4"><strong>Stranger Things 👾</strong></h1>
+            <p class="lead">Rahasia gelap dan dunia terbalik menanti di Hawkins! ⚡🕳️</p>
+            <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+          </div>
+        </div>
+        <!-- Alice in Borderland -->
+        <div class="carousel-item"
+          style="background-image: url('https://akcdn.detik.net.id/visual/2020/11/26/alice-in-borderline-2_169.jpeg?w=1200');">
+          <div class="carousel-caption">
+            <h1 class="display-4"><strong>Alice in Borderland 🎴</strong></h1>
+            <p class="lead">Masuki dunia game brutal dengan nyawa sebagai taruhannya! 🧠🕹️</p>
+            <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+          </div>
+        </div>
+        <!-- Peaky Blinders -->
+        <div class="carousel-item"
+          style="background-image: url('https://www.blackxperience.com/assets/content/blackattitude/blackstyle/peaky-blinders2.jpg');">
+          <div class="carousel-caption">
+            <h1 class="display-4"><strong>Peaky Blinders 🧢</strong></h1>
+            <p class="lead">Mafia Birmingham kembali dengan strategi, kekuasaan, dan balas dendam! 🔫🕵️‍♂️</p>
+            <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+          </div>
+        </div>
+        <!-- Money Heist -->
+        <div class="carousel-item"
+          style="background-image: url('https://ekspresionline.com/wp-content/uploads/2021/08/Money-Heist-2-scaled.jpg');">
+          <div class="carousel-caption">
+            <h1 class="display-4"><strong>Money Heist 💰</strong></h1>
+            <p class="lead">Aksi pencurian terbesar di Spanyol yang mengguncang dunia! 🔥🎭</p>
+            <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
+          </div>
         </div>
       </div>
-
-      <!-- Squid Game -->
-      <div class="carousel-item"
-        style="background-image: url('https://ceknricek.com/photo/plugin/article/2025/1738029684_1-org.jpg');">
-        <div class="carousel-caption">
-          <h1 class="display-4"><strong>Squid Game 🦑</strong></h1>
-          <p class="lead">Bertahan hidup atau mati dalam permainan paling mematikan di Korea! 💀🎮</p>
-          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
-        </div>
-      </div>
-
-      <!-- Stranger Things -->
-      <div class="carousel-item"
-        style="background-image: url('https://sm.ign.com/ign_nordic/news/s/stranger-t/stranger-things-season-5-all-episode-titles-revealed-as-netf_f7v5.jpg');">
-        <div class="carousel-caption">
-          <h1 class="display-4"><strong>Stranger Things 👾</strong></h1>
-          <p class="lead">Rahasia gelap dan dunia terbalik menanti di Hawkins! ⚡🕳️</p>
-          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
-        </div>
-      </div>
-
-      <!-- Alice in Borderland -->
-      <div class="carousel-item"
-        style="background-image: url('https://akcdn.detik.net.id/visual/2020/11/26/alice-in-borderline-2_169.jpeg?w=1200');">
-        <div class="carousel-caption">
-          <h1 class="display-4"><strong>Alice in Borderland 🎴</strong></h1>
-          <p class="lead">Masuki dunia game brutal dengan nyawa sebagai taruhannya! 🧠🕹️</p>
-          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
-        </div>
-      </div>
-
-      <!-- Peaky Blinders -->
-      <div class="carousel-item"
-        style="background-image: url('https://www.blackxperience.com/assets/content/blackattitude/blackstyle/peaky-blinders2.jpg');">
-        <div class="carousel-caption">
-          <h1 class="display-4"><strong>Peaky Blinders 🧢</strong></h1>
-          <p class="lead">Mafia Birmingham kembali dengan strategi, kekuasaan, dan balas dendam! 🔫🕵️‍♂️</p>
-          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
-        </div>
-      </div>
-
-      <!-- Money Heist -->
-      <div class="carousel-item"
-        style="background-image: url('https://ekspresionline.com/wp-content/uploads/2021/08/Money-Heist-2-scaled.jpg');">
-        <div class="carousel-caption">
-          <h1 class="display-4"><strong>Money Heist 💰</strong></h1>
-          <p class="lead">Aksi pencurian terbesar di Spanyol yang mengguncang dunia! 🔥🎭</p>
-          <a href="#movies" class="btn btn-netflix btn-lg"><i class="fas fa-play me-2"></i>Watch Now</a>
-        </div>
-      </div>
-
+      <!-- Carousel Controls -->
+      <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</section>
-
+  </section>
 
   <section id="about" class="my-5">
     <div class="container">
@@ -265,104 +279,102 @@
             menghadirkan pengalaman sinematik terbaik bagi pecinta film di mana saja. 🎬</p>
         </div>
         <div class="col-md-6 text-center">
-          <img src="https://i.imgur.com/pKTYq3B.png" alt="Nontonify About Image" class="about-image"">
+          <img src="https://i.imgur.com/pKTYq3B.png" alt="Nontonify About Image" class="about-image">
         </div>
       </div>
     </div>
   </section>
 
   <section id="movies" class="py-5">
-          <div class="container">
-            <h2 class="text-center mb-4"><i class="fas fa-video me-2"></i>Featured Movies & Series</h2>
-            <div class="row text-white">
-              <div class="col-md-4 mb-4">
-                <div class="card">
-                  <img
-                    src="https://cdn0-production-images-kly.akamaized.net/qbjGChmI2SqYemgUlWHwU1WGpkk=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/727386/original/082769200_1409023118-Breaking-Bad-HD-Poster-Download-Free-1080p.jpg"
-                    class="card-img-top" alt="Breaking Bad">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Breaking Bad 💉</h5>
-                    <p class="card-text">Guru kimia beralih ke kejahatan dalam drama intens ini! 🧪🔥</p>
-                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal1"><i
-                        class="fas fa-book-open me-2"></i>Read More</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="card">
-                  <img
-                    src="https://m.media-amazon.com/images/S/pv-target-images/08fd3bfadb7d07164a560a41d89765396d7be6c2f8475c35837990c1357f4c5f.jpg"
-                    class="card-img-top" alt="Better Call Saul">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Better Call Saul ⚖️</h5>
-                    <p class="card-text">Ikuti kebangkitan Saul dalam prekuel yang mendebarkan! 📞💼</p>
-                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal2"><i
-                        class="fas fa-book-open me-2"></i>Read More</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="card">
-                  <img
-                    src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/259/2025/04/20/R-2-3728481645.jpg"
-                    class="card-img-top" alt="Interstellar">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Interstellar 🚀</h5>
-                    <p class="card-text">Jelajahi ruang dan waktu dalam perjalanan sci-fi epik! 🌌✨</p>
-                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal3"><i
-                        class="fas fa-book-open me-2"></i>Read More</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="card">
-                  <img src="https://primerejune.wordpress.com/wp-content/uploads/2020/07/dark-season-3-review-1.jpg"
-                    class="card-img-top" alt="Dark">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Dark ⏳</h5>
-                    <p class="card-text">Pecahkan misteri perjalanan waktu dalam thriller Jerman! 🕰️🌀</p>
-                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal4"><i
-                        class="fas fa-book-open me-2"></i>Read More</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="card">
-                  <img
-                    src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/9b4dacba-2f80-4272-aac7-bb5e2ae91343/126cbbbc902e93563dbed96c2c72cb1d53c8d8ba.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom"
-                    class="card-img-top" alt="The Shawshank Redemption">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-film me-2"></i>The Shawshank Redemption 🔒</h5>
-                    <p class="card-text">Kisah harapan dan pelarian di penjara yang kejam! 🕊️🚨</p>
-                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal5"><i
-                        class="fas fa-book-open me-2"></i>Read More</button>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4 mb-4">
-                <div class="card">
-                  <img
-                    src="https://cdn.rri.co.id/berita/Kendari/o/1734761203423-44-facts-about-the-movie-forrest-gump-1687253076/sp1q36pnqnpu1bp.jpeg"
-                    class="card-img-top" alt="Forrest Gump">
-                  <div class="card-body">
-                    <h5 class="card-title"><i class="fas fa-film me-2"></i>Forrest Gump 🍫</h5>
-                    <p class="card-text">Berlari melalui suka duka hidup bersama Forrest! 🏃‍♂️❤️</p>
-                    <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal6"><i
-                        class="fas fa-book-open me-2"></i>Read More</button>
-                  </div>
-                </div>
-              </div>
+    <div class="container">
+      <h2 class="text-center mb-4"><i class="fas fa-video me-2"></i>Featured Movies & Series</h2>
+      <div class="row text-white">
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="https://cdn0-production-images-kly.akamaized.net/qbjGChmI2SqYemgUlWHwU1WGpkk=/1200x900/smart/filters:quality(75):strip_icc():format(webp)/kly-media-production/medias/727386/original/082769200_1409023118-Breaking-Bad-HD-Poster-Download-Free-1080p.jpg"
+              class="card-img-top" alt="Breaking Bad">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-film me-2"></i>Breaking Bad 💉</h5>
+              <p class="card-text">Guru kimia beralih ke kejahatan dalam drama intens ini! 🧪🔥</p>
+              <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal1"><i
+                  class="fas fa-book-open me-2"></i>Read More</button>
             </div>
           </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="https://m.media-amazon.com/images/S/pv-target-images/08fd3bfadb7d07164a560a41d89765396d7be6c2f8475c35837990c1357f4c5f.jpg"
+              class="card-img-top" alt="Better Call Saul">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-film me-2"></i>Better Call Saul ⚖️</h5>
+              <p class="card-text">Ikuti kebangkitan Saul dalam prekuel yang mendebarkan! 📞💼</p>
+              <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal2"><i
+                  class="fas fa-book-open me-2"></i>Read More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="https://static.promediateknologi.id/crop/0x0:0x0/0x0/webp/photo/p2/259/2025/04/20/R-2-3728481645.jpg"
+              class="card-img-top" alt="Interstellar">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-film me-2"></i>Interstellar 🚀</h5>
+              <p class="card-text">Jelajahi ruang dan waktu dalam perjalanan sci-fi epik! 🌌✨</p>
+              <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal3"><i
+                  class="fas fa-book-open me-2"></i>Read More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img src="https://primerejune.wordpress.com/wp-content/uploads/2020/07/dark-season-3-review-1.jpg"
+              class="card-img-top" alt="Dark">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-film me-2"></i>Dark ⏳</h5>
+              <p class="card-text">Pecahkan misteri perjalanan waktu dalam thriller Jerman! 🕰️🌀</p>
+              <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal4"><i
+                  class="fas fa-book-open me-2"></i>Read More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="https://beam-images.warnermediacdn.com/BEAM_LWM_DELIVERABLES/9b4dacba-2f80-4272-aac7-bb5e2ae91343/126cbbbc902e93563dbed96c2c72cb1d53c8d8ba.jpg?host=wbd-images.prod-vod.h264.io&partner=beamcom"
+              class="card-img-top" alt="The Shawshank Redemption">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-film me-2"></i>The Shawshank Redemption 🔒</h5>
+              <p class="card-text">Kisah harapan dan pelarian di penjara yang kejam! 🕊️🚨</p>
+              <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal5"><i
+                  class="fas fa-book-open me-2"></i>Read More</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <img
+              src="https://cdn.rri.co.id/berita/Kendari/o/1734761203423-44-facts-about-the-movie-forrest-gump-1687253076/sp1q36pnqnpu1bp.jpeg"
+              class="card-img-top" alt="Forrest Gump">
+            <div class="card-body">
+              <h5 class="card-title"><i class="fas fa-film me-2"></i>Forrest Gump 🍫</h5>
+              <p class="card-text">Berlari melalui suka duka hidup bersama Forrest! 🏃‍♂️❤️</p>
+              <button class="btn btn-netflix" data-bs-toggle="modal" data-bs-target="#movieModal6"><i
+                  class="fas fa-book-open me-2"></i>Read More</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </section>
 
   <section class="py-5 bg-dark text-white">
     <div class="container">
       <h2 class="text-center mb-4"><i class="fas fa-play-circle me-2"></i>Official Trailers</h2>
-
       <div id="trailer-container" class="d-flex overflow-auto gap-3 pb-4"
         style="scroll-snap-type: x mandatory; scroll-behavior: smooth;">
-
         <!-- Trailer 1 -->
         <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
           <div class="ratio ratio-16x9">
@@ -373,20 +385,16 @@
             <p class="card-text text-muted"><strong>2025</strong></p>
           </div>
         </div>
-
         <!-- Trailer 2 -->
         <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
           <div class="ratio ratio-16x9">
-            <iframe src="https://www.youtube.com/embed/2b3vBaINZ7w" title="Until Dawn"
-              allowfullscreen></iframe>
+            <iframe src="https://www.youtube.com/embed/2b3vBaINZ7w" title="Until Dawn" allowfullscreen></iframe>
           </div>
           <div class="card-body">
             <h5 class="card-title">Until Dawn</h5>
             <p class="card-text text-muted"><strong>2025</strong></p>
-
           </div>
         </div>
-
         <!-- Trailer 3 -->
         <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
           <div class="ratio ratio-16x9">
@@ -397,7 +405,6 @@
             <p class="card-text text-muted"><strong>2025</strong></p>
           </div>
         </div>
-
         <!-- Trailer 4 -->
         <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
           <div class="ratio ratio-16x9">
@@ -408,7 +415,6 @@
             <p class="card-text text-muted"><strong>2025</strong></p>
           </div>
         </div>
-
         <!-- Trailer 5 -->
         <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
           <div class="ratio ratio-16x9">
@@ -419,7 +425,6 @@
             <p class="card-text text-muted"><strong>2025</strong></p>
           </div>
         </div>
-
         <!-- Trailer 6 -->
         <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
           <div class="ratio ratio-16x9">
@@ -430,7 +435,6 @@
             <p class="card-text text-muted"><strong>2025</strong></p>
           </div>
         </div>
-
         <!-- Trailer 7 -->
         <div class="card bg-black text-white" style="min-width: 300px; scroll-snap-align: start;">
           <div class="ratio ratio-16x9">
@@ -442,11 +446,57 @@
           </div>
         </div>
       </div>
-
       <!-- Arrow Buttons -->
       <div class="d-flex justify-content-between align-items-center mb-2">
         <button class="btn btn-outline-light" onclick="scrollTrailer(-1)"><i class="fas fa-chevron-left"></i></button>
         <button class="btn btn-outline-light" onclick="scrollTrailer(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="ratings" class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-5"><i class="fas fa-star me-2"></i>User Ratings & Reviews</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="rating-card">
+            <h5 class="mb-3">Sarah W.</h5>
+            <div class="star-rating mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <p>"Nontonify benar-benar bikin aku betah nonton! Interface-nya simple tapi elegan. Yang paling aku suka, ada banyak pilihan film dan series, dan semuanya bisa dicari dengan gampang. Cocok banget buat anak sekolah yang pengen healing sambil nonton film seru!"</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="rating-card">
+            <h5 class="mb-3">Adi P.</h5>
+            <div class="star-rating mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <p>"Sebagai mahasiswa yang suka ngulik web, saya cukup kagum dengan performa dan UI/UX Nontonify. Navigasinya cepat dan tidak membingungkan, serta fitur filter genre sangat membantu. Ditambah lagi, tampilannya sudah responsif di HP maupun laptop. Good job tim dev!"</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="rating-card">
+            <h5 class="mb-3">Emily R.</h5>
+            <div class="star-rating mb-2">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <i class="far fa-star"></i>
+            </div>
+            <p>"Awalnya saya bingung cara cari film keluarga, tapi Nontonify mudah digunakan bahkan oleh orang tua seperti saya. Tulisannya jelas, tampilannya enak dilihat, dan tidak banyak iklan mengganggu. Sekarang nonton bareng keluarga jadi lebih gampang."</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
